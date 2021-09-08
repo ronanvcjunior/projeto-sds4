@@ -1,6 +1,10 @@
 package com.desuperior.devvendas.controllers;
 
+import java.util.List;
+
 import com.desuperior.devvendas.dto.SaleDTO;
+import com.desuperior.devvendas.dto.SaleSuccessDTO;
+import com.desuperior.devvendas.dto.SaleSumDTO;
 import com.desuperior.devvendas.service.SaleService;
 
 import org.springframework.data.domain.Page;
@@ -21,6 +25,16 @@ public class SaleController {
     @GetMapping
     public ResponseEntity<Page<SaleDTO>> list(Pageable pageable) {
         return ResponseEntity.ok(saleService.listAll(pageable));
+    }
+
+    @GetMapping(value = "/amount-by-seller")
+    public ResponseEntity<List<SaleSumDTO>> amountGroupedBySeller() {
+        return ResponseEntity.ok(saleService.amountGroupedBySeller());
+    }
+
+    @GetMapping(value = "/success-by-seller")
+    public ResponseEntity<List<SaleSuccessDTO>> successGroupedBySeller() {
+        return ResponseEntity.ok(saleService.successGroupedBySeller());
     }
 
 }
