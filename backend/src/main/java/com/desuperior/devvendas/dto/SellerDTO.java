@@ -4,13 +4,6 @@ import java.io.Serializable;
 
 import com.desuperior.devvendas.entities.Seller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class SellerDTO implements Serializable{
     private static final long serialVersionUID = 1L;
 
@@ -20,5 +13,21 @@ public class SellerDTO implements Serializable{
     public SellerDTO(Seller seller) {
         id = seller.getId();
         name = seller.getName();
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }

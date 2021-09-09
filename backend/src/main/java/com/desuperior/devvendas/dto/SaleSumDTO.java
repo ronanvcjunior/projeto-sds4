@@ -4,13 +4,6 @@ import java.io.Serializable;
 
 import com.desuperior.devvendas.entities.Seller;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class SaleSumDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -20,5 +13,21 @@ public class SaleSumDTO implements Serializable {
     public SaleSumDTO(Seller seller, Double sumAmount) {
         this.sellerName = seller.getName();
         this.sumAmount = sumAmount;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSumAmount(Double sumAmount) {
+        this.sumAmount = sumAmount;
+    }
+
+    public Double getSumAmount() {
+        return sumAmount;
     }
 }

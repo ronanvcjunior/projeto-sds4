@@ -10,15 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "tb_sales")
 public class Sale {
@@ -35,4 +26,64 @@ public class Sale {
     @ManyToOne
     @JoinColumn(name = "seller_id")
     private Seller seller;
+
+    public Sale() {
+
+    }
+
+    public Sale(Long id, Integer visited, Integer deals, Double amount, LocalDate date) {
+        this.id = id;
+        this.visited = visited;
+        this.deals = deals;
+        this.amount = amount;
+        this.date = date;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setVisited(Integer visited) {
+        this.visited = visited;
+    }
+
+    public Integer getVisited() {
+        return visited;
+    }
+
+    public void setDeals(Integer deals) {
+        this.deals = deals;
+    }
+
+    public Integer getDeals() {
+        return deals;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
 }

@@ -9,19 +9,20 @@ import com.desuperior.devvendas.entities.Sale;
 import com.desuperior.devvendas.repositories.SaleRepository;
 import com.desuperior.devvendas.repositories.SellerRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 public class SaleService {
-    private final SaleRepository saleRepository;
+    
+    @Autowired
+    private SaleRepository saleRepository;
 
-    private final SellerRepository sellerRepository;
+    @Autowired
+    private SellerRepository sellerRepository;
 
     @Transactional(readOnly = true)
     public Page<SaleDTO> listAll(Pageable pageable) {

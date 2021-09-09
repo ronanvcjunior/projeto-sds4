@@ -7,6 +7,7 @@ import com.desuperior.devvendas.dto.SaleSuccessDTO;
 import com.desuperior.devvendas.dto.SaleSumDTO;
 import com.desuperior.devvendas.service.SaleService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("sales")
-@RequiredArgsConstructor
 public class SaleController {
-    private final SaleService saleService;
+
+    @Autowired
+    private SaleService saleService;
 
     @GetMapping
     public ResponseEntity<Page<SaleDTO>> list(Pageable pageable) {

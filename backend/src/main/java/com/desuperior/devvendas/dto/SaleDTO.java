@@ -5,13 +5,6 @@ import java.time.LocalDate;
 
 import com.desuperior.devvendas.entities.Sale;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class SaleDTO implements Serializable {
     private static final long serialVersionUID = 1L;
     
@@ -23,6 +16,10 @@ public class SaleDTO implements Serializable {
 
     private SellerDTO seller;
 
+    public SaleDTO() {
+
+    }
+
     public SaleDTO(Sale entity) {
         id = entity.getId();
         visited = entity.getVisited();
@@ -30,5 +27,53 @@ public class SaleDTO implements Serializable {
         amount = entity.getAmount();
         date = entity.getDate();
         seller = new SellerDTO(entity.getSeller());
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setVisited(Integer visited) {
+        this.visited = visited;
+    }
+
+    public Integer getVisited() {
+        return visited;
+    }
+
+    public void setDeals(Integer deals) {
+        this.deals = deals;
+    }
+
+    public Integer getDeals() {
+        return deals;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setSeller(SellerDTO seller) {
+        this.seller = seller;
+    }
+
+    public SellerDTO getSeller() {
+        return seller;
     }
 }

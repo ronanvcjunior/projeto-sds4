@@ -10,15 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "tb_sellers")
 public class Seller {
@@ -30,4 +21,29 @@ public class Seller {
 
     @OneToMany(mappedBy = "seller")
     private List<Sale> sales = new ArrayList<>();
+
+    public Seller() {
+        
+    }
+
+    public Seller(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Sale> getSales() {
+        return sales;
+    }
 }

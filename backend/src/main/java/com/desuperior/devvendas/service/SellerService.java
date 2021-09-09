@@ -7,15 +7,14 @@ import com.desuperior.devvendas.dto.SellerDTO;
 import com.desuperior.devvendas.entities.Seller;
 import com.desuperior.devvendas.repositories.SellerRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
 public class SellerService {
     
-    private final SellerRepository sellerRepository;
+    @Autowired
+    private SellerRepository sellerRepository;
 
     public List<SellerDTO> listAll() {
         List<Seller> result = sellerRepository.findAll();
