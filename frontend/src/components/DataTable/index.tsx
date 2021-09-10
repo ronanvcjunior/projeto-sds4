@@ -1,7 +1,7 @@
 import axios from "axios";
 import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
-import { Sale, SalePage } from "types/sale";
+import { SalePage } from "types/sale";
 import { formatLocalDate } from "util/format";
 import { BASE_URL } from "util/requests";
 
@@ -21,7 +21,7 @@ const DataTable = () => {
     })
 
     useEffect(() => {
-        axios.get(BASE_URL.concat(`sales?page=${activePage}`)).then(response => {
+        axios.get(BASE_URL.concat(`/sales?page=${activePage}`)).then(response => {
             setPage(response.data)
         })
     }, [activePage])
